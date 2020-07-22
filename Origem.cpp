@@ -1,5 +1,6 @@
 #include <iostream>
 #include <locale>
+#include<fstream>
 using namespace std;
 
 int x, y, z;
@@ -9,19 +10,22 @@ int main()
 {
     setlocale(LC_ALL, "");
     cout << "  ||||||||||| GERADOR DE TRAVAZAP |||||||||||  " << endl;
-    cout << "a força maxima é 4642 então n exagera" << endl<<endl;
-    cout << "força:"; cin >> x; cout << endl;
+    cout << "a forÃ§a maxima Ã© 4642 entÃ£o n exagera" << endl<<endl;
+    cout << "forÃ§a:"; cin >> x; cout << endl;
     cout << "marca:"; cin >> marca;
 
+    ofstream trava;
+    trava.open("travazapAutoral.txt", ios::app);
 
-
-    cout << "~*_ " << marca << "_*~" << endl << endl;
+    trava<< "*_ " << marca << "_*" << endl << endl;
 
     for (z = 0; z <= x; z++) {
 
         y = z % 5;
 
-        cout << "~*_ " <<y<<y+1<<y+2<<y+3<<y<<y<<y<<y+1<< "_*~ ";
+        trava << "~*_ " <<y<<y+1<<y+2<<y+3<<y<<y<<y<<y+1<< "_*~ ";
+        if ((z % 5) == 0)cout << endl;
     }
-
+    
+    trava.close();
 }
